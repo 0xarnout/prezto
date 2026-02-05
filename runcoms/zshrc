@@ -6,8 +6,30 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/repos/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/repos/prezto/init.zsh"
 fi
 
 # Customize to your needs...
+
+
+# Aliases
+alias ls='ls --color=auto'
+alias bat='batcat'
+alias gitlog='git log --all --decorate --oneline --graph --show-signature'
+alias pyenv='source ~/env/bin/activate'
+alias update='sudo apt-get upgrade --update -y; flatpak update -y; rustup update; npm -g update; cd ~/repos/prezto; git pull; git submodule sync --recursive; git submodule update --init --recursive; cd -; sudo cp ~/.cargo/bin/kanata /tmp/kanata_ioijwkfmlml; sudo mv /tmp/kanata_ioijwkfmlml /usr/local/bin/kanata'
+alias fullscan='clamscan --recursive=yes --infected --exclude-dir="^/(proc|sys|dev)" "/"'
+alias rcmpl='sudo docker compose build blog; sudo docker compose down; sudo docker compose up -d'
+
+# Cargo
+source "$HOME/.cargo/env"
+
+# npm packages directory
+export NPM_CONFIG_PREFIX=$HOME/.npm/packages
+export PATH=$PATH:$HOME/.npm/packages/bin
+
+# Dotnet
+export PATH=$PATH:$HOME/.dotnet/tools
+# No Dotnet Telemetry!!!
+DOTNET_CLI_TELEMETRY_OPTOUT='true'
