@@ -33,3 +33,6 @@ export PATH=$PATH:$HOME/.npm/packages/bin
 export PATH=$PATH:$HOME/.dotnet/tools
 # No Dotnet Telemetry!!!
 DOTNET_CLI_TELEMETRY_OPTOUT='true'
+
+# Python virtualenv bins
+export PATH=$PATH:$HOME/env/bin
